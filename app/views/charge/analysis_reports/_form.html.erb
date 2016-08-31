@@ -1,0 +1,113 @@
+ <style type="text/css">
+    .form-control{
+        display:inline;
+        width: 65%;
+    }
+    .row-padding-0{
+      padding-left:0;
+      padding-right: 0;
+      float:left;
+    }
+    .select2-results__options,.select2-selection__rendered,input,form{
+      font-size:9pt !important;
+    }
+
+</style>
+<%= form_tag('/charge/analysis_reports/index', method: :get) do %>
+
+  <div class="row-padding-0" style="width:14%">
+
+    <div class="form-group">
+      <%= label_tag :code_number, "基础码", class: "control-label" %>
+      <%= text_field_tag :code_number, nil, {class: "form-control",style:"width:65%"} %>
+    </div>
+    <div class="form-group">
+        <%= label_tag :dest_number, "端口号", class: "control-label" %>
+        <%= text_field_tag :dest_number, nil, {class: "form-control",style:"width:65%"}  %>
+         <div >
+          <%= check_box_tag :code_union_name_flag %> 明细
+        </div>
+    </div>
+  </div>
+
+
+  <div class="row-padding-0" style="width:15%">
+    <div class="form-group">
+      <%= label_tag :province_id, "省份", class: "control-label" %>
+      <%= select_tag :province_id, analysis_province_options, {  class: "form-control input-md select2",style:"width:75%"}  %>
+    </div>
+    <div class="form-group">
+        <%= label_tag :city_id, "城市", class: "control-label" %>
+        <%= select_tag :city_id, analysis_city_options, { class: "form-control input-md select2",style:"width:75%"}  %>
+        <%= select_tag :city_id_hidden, analysis_city_options, {include_blank: true, class: "form-control", style: "display:none;"}  %>
+    </div>
+
+  </div>
+
+
+  <div class="row-padding-0" style="width:16%">
+    <div class="form-group">
+          <%= label_tag :operator_id, "运营商", class: "control-label" %>
+          <%= select_tag :operator_id, analysis_operator_options, { class: "form-control input-md select2",style:"width:70%"}  %>
+    </div>
+
+    <div class="form-group">
+       <%= label_tag :business_coding, "码类型", class: "control-label"%>
+       <%= select_tag :business_coding, analysis_code_type_options, { class: "form-control input-md select2",style:"width:70%"} %>
+    </div>
+  </div>
+
+  <div class="row-padding-0" style="width:21%">
+    <div class="form-group">
+        <%= label_tag :sp_id, "渠道", class: "control-label"%>
+       <%= select_tag :sp_id, analysis_service_provider_options, { class: "form-control input-md select2",style:"width:80%"} %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :current_tag, "标签", class: "control-label"%>
+       <%= select_tag :current_tag, analysis_product_tag_options, { class: "form-control input-md select2",style:"width:80%"} %>
+   </div>
+  </div>
+
+  <div class="row-padding-0" style="width:14%">
+    <div class="form-group">
+      <%= label_tag :sp_company, "公司", class: "control-label"%>
+      <%= select_tag :sp_company, '', { class: "form-control input-md select2",style:"width:75%"} %>
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">单位</label>
+        <select id="unit" name="unit" class="form-control input-md select2" placeholder="请选择" style="width:75%">
+            <option unit="delimiter" value="1">用户数</option>
+            <option unit="delimiter" value="2">条数</option>
+            <option unit="centToYuan" value="3">金额</option>
+        </select>
+    </div>
+  </div>
+
+
+  <div class="row-padding-0" width="5%">
+      <div class="col-xs-12 col-md-12">
+        <div class="form-group">
+            <label class="control-label">开始</label>
+            <%= text_field_tag :start_date, Date.today.to_s, {class: "form-control datepicker",size: "15" ,style:"width:60%"} %>
+        </div>
+        <div class="form-group">
+            <label class="control-label">结束</label>
+             <%= text_field_tag :end_date, Date.today.to_s, {class: "form-control datepicker",size: "15" ,style:"width:60%"} %>
+              <div>
+                  <%= check_box_tag :report_date_flag %> 明细
+              </div>
+        </div>
+      </div>
+  </div>
+    <!--  -->
+  <div class="row-padding-0" style="width:5%">
+      <div class="form-inline" >
+          <button id="analysis_btn" type="button" class="btn btn-primary">查询</button>
+      </div>
+  </div>
+  <!--  -->
+
+<% end %>

@@ -1,0 +1,318 @@
+# This is the job config of the dock warehouse.
+#
+# basic_conf:  &BASIC_CONF
+#   job_id: "5000001"
+#   tag: smart
+#   extract_source: doraemon_production
+#   extract_table: request_histories
+#   extract_fields: '*'
+#   extract_clause:
+#   extract_dir: /log/honey_infinidb_csv
+#   load_source: dwh_smart_production
+#   load_table: request_histories
+#   load_type: incremental
+#   load_dir: /log/honey_infinidb_csv
+#   delimiter: ';'
+#   hdfs_backup: false
+#   increment_field: id
+#
+# 5000001:
+#   <<: *BASIC_CONF
+#   job_id: "5000001"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: request_histories
+#   load_table: request_histories
+#   tag: smart
+#   load_type: incremental
+#
+# 5000002:
+#   <<: *BASIC_CONF
+#   job_id: "5000002"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: users
+#   load_table: users
+#   tag: smart
+#   load_type: truncate
+#
+# 5000003:
+#   <<: *BASIC_CONF
+#   job_id: "5000003"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: sp_charge_histories
+#   load_table: sp_charge_histories
+#   tag: smart
+#   load_type: incremental
+#
+# 5000004:
+#   <<: *BASIC_CONF
+#   job_id: "5000004"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: downloader_infos
+#   load_table: downloader_infos
+#   tag: smart
+#
+# 5000005:
+#   <<: *BASIC_CONF
+#   job_id: "5000005"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: base_code_charge_histories
+#   load_table: base_code_charge_histories
+#   tag: smart
+#
+# 5000006:
+#   <<: *BASIC_CONF
+#   job_id: "5000006"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: charge_code_deliver_histories
+#   load_table: charge_code_deliver_histories
+#   tag: smart
+#
+# 5000007:
+#   <<: *BASIC_CONF
+#   job_id: "5000007"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: charge_code_deliver_details
+#   load_table: charge_code_deliver_details
+#   tag: smart
+#
+# 5000008:
+#   <<: *BASIC_CONF
+#   job_id: "5000008"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: request_payment_histories
+#   load_table: request_payment_histories
+#   tag: smart
+#
+# 5000011:
+#   <<: *BASIC_CONF
+#   job_id: "5000011"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: canceled_charge_codes
+#   load_table: canceled_charge_codes
+#   tag: smart
+#
+# 5000012:
+#   <<: *BASIC_CONF
+#   job_id: "5000012"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: order_charge_histories
+#   load_table: order_charge_histories
+#   tag: smart
+#
+# 5000013:
+#   <<: *BASIC_CONF
+#   job_id: "5000013"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: order_periods
+#   load_table: order_periods
+#   tag: smart
+#
+# 5000014:
+#   <<: *BASIC_CONF
+#   job_id: "5000014"
+#   extract_source: doraemon_production
+#   load_source: dwh_smart_production
+#   extract_table: pay_tasks
+#   load_table: pay_tasks
+#   tag: smart
+#
+# 5000009:
+#   <<: *BASIC_CONF
+#   job_id: "5000009"
+#   extract_source: v4_production
+#   load_source: dwh_smart_v4_production
+#   extract_table: base_code_charge_histories
+#   load_table: base_code_charge_histories
+#   tag: v4
+#
+# 5000010:
+#   <<: *BASIC_CONF
+#   job_id: "5000010"
+#   extract_source: v4_production
+#   load_source: dwh_smart_v4_production
+#   extract_table: sp_charge_histories
+#   load_table: sp_charge_histories
+#   tag: v4
+#
+etl_base_conf:  &ETL_BASE_CONF
+  extract_fields: '*'
+  extract_clause:
+  extract_ssh_user: railsdeploy
+  extract_ssh_port: 2022
+  extract_dir: /log/honey_infinidb_csv
+  load_type: incremental
+  load_dir: /log/honey_infinidb_csv
+  delimiter: ';'
+  hdfs_backup: false
+  increment_field: id
+  job_type: EtlJob
+
+load_base_conf:  &LOAD_BASE_CONF
+  load_type: incremental
+  tmp_dir: /log/honey_infinidb_csv
+  delimiter: '|'
+  hdfs_backup: false
+  webhdfs_host: 192.168.12.14
+  webhdfs_port: 50070
+  job_type: LoadJob
+
+clean_base_conf:  &CLEAN_BASE_CONF
+  delete_buffer: 10000
+  job_type: CleanJob
+
+6000001:
+  <<: *ETL_BASE_CONF
+  job_id: "6000001"
+  extract_source: sword_production
+  load_source: report_sword_production
+  extract_table: seed_users
+  load_table: seed_users
+  tag: sword
+
+6000002:
+  <<: *ETL_BASE_CONF
+  job_id: "6000002"
+  extract_source: locust_production
+  load_source: report_sword_production
+  extract_table: package_infos
+  load_table: package_infos
+  tag: sword
+  load_type: truncate
+
+6000003:
+  <<: *ETL_BASE_CONF
+  job_id: "6000003"
+  extract_source: sword_production
+  load_source: report_sword_production
+  extract_table: request_histories
+  load_table: request_histories
+  tag: sword
+
+6000008:
+  <<: *ETL_BASE_CONF
+  job_id: "6000008"
+  extract_source: panda_production
+  load_source: report_sword_production
+  extract_table: users
+  load_table: users
+  tag: sword
+
+7000001:
+  <<: *ETL_BASE_CONF
+  job_id: "7000001"
+  extract_source: crab_production
+  load_source: report_crab_production
+  extract_table: report_users
+  load_table: report_users
+  tag: crab
+
+7000002:
+  <<: *ETL_BASE_CONF
+  job_id: "7000002"
+  extract_source: crab_production
+  load_source: report_crab_production
+  extract_table: report_request_histories
+  load_table: report_request_histories
+  tag: crab
+
+8000001:
+  <<: *ETL_BASE_CONF
+  job_id: "8000001"
+  extract_source: ework_production
+  load_source: report_ework_production
+  extract_table: t_phoneargs
+  load_table: t_phoneargs
+  tag: ework
+  load_type: truncate
+
+4000001:
+  <<: *LOAD_BASE_CONF
+  job_id: "4000001"
+  hdfs_file_dir: /user/hadoop/log/format/sword/feedback/#{1.hour.ago.localtime.strftime('%F-%H')}
+  hdfs_file_name: part-r-00000
+  load_source: report_sword_production
+  load_table: seed_feedback_histories
+  tag: sword_hdfs_hourly
+
+4000002:
+  <<: *LOAD_BASE_CONF
+  job_id: "4000002"
+  hdfs_file_dir: /user/hadoop/log/format/sword/props/#{1.hour.ago.localtime.strftime('%F-%H')}
+  hdfs_file_name: props_sword_bingo.log.#{1.hour.ago.localtime.strftime('%F-%H')}.log
+  load_source: report_sword_production
+  load_table: props
+  tag: sword_hdfs_hourly
+
+4000003:
+  <<: *LOAD_BASE_CONF
+  job_id: "4000003"
+  hdfs_file_dir: /user/hadoop/log/format/smart_cobra/#{1.hour.ago.localtime.strftime('%F-%H')}
+  hdfs_file_name: service.#{1.hour.ago.localtime.strftime('%F-%H')}.log
+  load_source: report_smart_production
+  load_table: request_histories
+  tag: smart_hdfs_hourly
+
+4000004:
+  <<: *LOAD_BASE_CONF
+  job_id: "4000004"
+  hdfs_file_dir: /user/hadoop/log/format/ework/#{1.hour.ago.localtime.strftime('%F-%H')}
+  hdfs_file_name: ework.#{1.hour.ago.localtime.strftime('%F-%H')}.log
+  load_source: report_ework_production
+  load_table: request_histories
+  tag: ework_hdfs_hourly
+
+1000001:
+  <<: *CLEAN_BASE_CONF
+  job_id: "1000001"
+  time_field: record_time
+  data_source: report_sword_production
+  data_tables: request_histories
+  keep_time: 31.days
+  tag: sword_clean
+
+1000002:
+  <<: *CLEAN_BASE_CONF
+  job_id: "1000002"
+  time_field: request_time
+  data_source: report_crab_production
+  data_tables: report_request_histories
+  keep_time: 32.days
+  tag: crab_clean
+
+1000003:
+  <<: *CLEAN_BASE_CONF
+  job_id: "1000003"
+  time_field: record_time
+  data_source: report_sword_production
+  data_tables: report_request_histories,props
+  keep_time: 32.days
+  tag: sword_hdfs_clean
+
+1000004:
+  <<: *CLEAN_BASE_CONF
+  job_id: "1000004"
+  time_field: record_time
+  data_source: report_smart_production
+  data_tables: request_histories
+  keep_time: 32.days
+  tag: smart_hdfs_clean
+
+1000005:
+  <<: *CLEAN_BASE_CONF
+  job_id: "1000005"
+  time_field: record_time
+  data_source: report_ework_production
+  data_tables: request_histories
+  keep_time: 32.days
+  tag: ework_hdfs_clean

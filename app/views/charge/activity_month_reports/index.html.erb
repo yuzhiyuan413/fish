@@ -1,0 +1,27 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <div class="row">
+            <%= render '/shards/form_template' %>
+          </div>
+          <div class="row">
+            <table id="charge_month_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                  <th tag="province">省份</th>
+                  <th tag="activity_num" field_exec="delimiter">活跃用户</th>
+                  <th tag="request_times" field_exec="delimiter">联网次数</th>
+                  <th tag="request_per_avg" field_exec="delimiter">平均每用户联网</th>
+                  <th tag="cmcc_num" field_exec="delimiter">移动用户</th>
+                  <th tag="cucc_num" field_exec="delimiter">联通用户</th>
+                  <th tag="ctcc_num" field_exec="delimiter">电信用户</th>
+                  <th tag="others_sp_num" field_exec="delimiter">其他运营商</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+      <% end %>
+    </div>
+<% end %>

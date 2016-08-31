@@ -1,0 +1,38 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+        <div class="row">
+          <%= render '/shards/form_template' %>
+        </div>
+          <div class="row">
+            <table id="solution_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+              <thead>
+              <tr>
+                <th tag="report_date">日期</th>
+                <th tag="tag">标签</th>
+                <th tag="plan_id">方案</th>
+                <th tag="active_count" field_exec="delimiter">种子联网</th>
+                <th tag="execting_count" field_exec="delimiter">准备执行</th>
+                <th tag="exected_count" field_exec="delimiter">已经执行</th>
+                <th tag="canceled_count" field_exec="delimiter">取消执行</th>
+                <th tag="success_count" field_exec="delimiter">执行成功</th>
+                <th tag="return_ratio" field_exec="percentage">回传率</th>
+                <th tag="success_ratio" field_exec="percentage">成功率</th>
+                <th tag="succ_proportion_ratio" field_exec="percentage">成功占比</th>
+                <th tag="installed_count" field_exec="delimiter">安装成功</th>
+                <th tag="installed_ratio" field_exec="percentage">安装率</th>
+                <th tag="new_installed_count" field_exec="delimiter">新安装成功</th>
+                <th tag="new_installed_ratio" field_exec="percentage">新安装率</th>
+                <th tag="v8_exists_count" field_exec="delimiter">存在V8</th>
+                <th tag="v8_exists_ratio" field_exec="percentage"></th>
+                <th tag="v9_exists_count" field_exec="delimiter">存在V9</th>
+                <th tag="v9_exists_ratio" field_exec="percentage"></th>
+              </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+      <% end %>
+    </div>
+<% end %>

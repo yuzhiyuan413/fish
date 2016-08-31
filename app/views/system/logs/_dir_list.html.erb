@@ -1,0 +1,7 @@
+<ul class="list-group">
+  <% LOG_DIR.each do |log_dir| %>
+    <li class="list-group-item">
+      <%= link_to log_dir, dir_system_logs_url(:logdir => log_dir)%>
+    </li>
+  <% end %>
+</ul>

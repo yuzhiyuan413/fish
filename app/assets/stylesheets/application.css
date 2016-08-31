@@ -1,0 +1,100 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap_custom
+ *= require font-awesome
+ *= require ionicons
+ *= require admin_lte
+ *= require all_skins
+ *= require datatables
+ *= require select2-bootstrap
+ *= require select2
+ *= require fakeloader
+ *= require codemirror
+ *= require monokai
+ *= require_self
+ */
+
+/* select2保持原有css,这里单独区分select2中的样式*/
+.select2-selection {
+    height: 34px !important;
+    line-height: 28px !important;
+}
+.monitor_div{
+	margin-top:20px;margin-bottom: 20px;
+}
+
+.tooltip{
+	z-index: 999;
+	position: absolute;
+}
+.treeview-menu{margin-top: -3px !important;}
+
+div.go-top {
+    display: none;
+    opacity: 0.6;
+    z-index: 99;
+    position: fixed;
+    bottom: 113px;
+    left: 94%;
+   /* border: 1px solid #286090;*/
+    width: 38px;
+    height: 38px;
+    background-color: #d9d9d9;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+div.go-top:hover {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+div.go-top div.arrow {
+    position: absolute;
+    left: 10px;
+    top: -1px;
+    width: 0;
+    height: 0;
+    border: 9px solid transparent;
+    border-bottom-color: #969696;
+}
+
+div.go-top div.stick {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 8px;
+    height: 14px;
+    display: block;
+    background-color: #969696;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+}
+
+table.small-font {
+  font-size: 9pt;
+}
+
+td.td_click_field{cursor:pointer;}
+
+span.low-notice{
+    background:green;
+    color:white;
+    padding:3px 5px;
+    float:right;
+}
+.modal-backdrop.fade {
+    filter: alpha(opacity=30);
+    opacity: .3;
+}

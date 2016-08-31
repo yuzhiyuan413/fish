@@ -1,0 +1,75 @@
+31389:C 29 Jun 18:53:47.903 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+31389:M 29 Jun 18:53:47.904 * Increased maximum number of open files to 10032 (it was originally set to 4864).
+31389:M 29 Jun 18:53:47.905 # Creating Server TCP listening socket *:6379: bind: Address already in use
+31475:C 29 Jun 18:55:27.745 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+31475:M 29 Jun 18:55:27.746 * Increased maximum number of open files to 10032 (it was originally set to 7168).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 31475
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+31475:M 29 Jun 18:55:27.747 # Server started, Redis version 3.0.7
+31475:M 29 Jun 18:55:27.747 * The server is now ready to accept connections on port 6379
+32604:C 29 Jun 19:36:36.271 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+32604:M 29 Jun 19:36:36.272 * Increased maximum number of open files to 10032 (it was originally set to 7168).
+32604:M 29 Jun 19:36:36.273 # Creating Server TCP listening socket *:6379: bind: Address already in use
+32644:C 29 Jun 19:37:09.716 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+32644:M 29 Jun 19:37:09.717 * Increased maximum number of open files to 10032 (it was originally set to 7168).
+32644:M 29 Jun 19:37:09.717 # Creating Server TCP listening socket *:6379: bind: Address already in use
+32757:C 29 Jun 19:37:41.460 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+32757:M 29 Jun 19:37:41.461 * Increased maximum number of open files to 10032 (it was originally set to 7168).
+32757:M 29 Jun 19:37:41.462 # Creating Server TCP listening socket *:6379: bind: Address already in use
+32874:C 29 Jun 19:39:20.681 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+32874:M 29 Jun 19:39:20.683 * Increased maximum number of open files to 10032 (it was originally set to 7168).
+32874:M 29 Jun 19:39:20.683 # Creating Server TCP listening socket *:6379: bind: Address already in use
+32893:C 29 Jun 19:40:21.386 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+32893:M 29 Jun 19:40:21.387 * Increased maximum number of open files to 10032 (it was originally set to 7168).
+32893:M 29 Jun 19:40:21.387 # Creating Server TCP listening socket *:6379: bind: Address already in use
+31475:signal-handler (1467200447) Received SIGTERM scheduling shutdown...
+31475:M 29 Jun 19:40:47.405 # User requested shutdown...
+31475:M 29 Jun 19:40:47.406 * Saving the final RDB snapshot before exiting.
+31475:M 29 Jun 19:40:47.407 * DB saved on disk
+31475:M 29 Jun 19:40:47.407 # Redis is now ready to exit, bye bye...
+32916:C 29 Jun 19:40:50.585 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+32916:M 29 Jun 19:40:50.586 * Increased maximum number of open files to 10032 (it was originally set to 7168).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 32916
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+32916:M 29 Jun 19:40:50.587 # Server started, Redis version 3.0.7
+32916:M 29 Jun 19:40:50.587 * DB loaded from disk: 0.000 seconds
+32916:M 29 Jun 19:40:50.587 * The server is now ready to accept connections on port 6379
+32924:C 29 Jun 19:41:08.146 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+32924:M 29 Jun 19:41:08.147 * Increased maximum number of open files to 10032 (it was originally set to 7168).
+32924:M 29 Jun 19:41:08.147 # Creating Server TCP listening socket *:6379: bind: Address already in use
+32916:M 29 Jun 20:01:36.156 # User requested shutdown...
+32916:M 29 Jun 20:01:36.156 * Saving the final RDB snapshot before exiting.
+32916:M 29 Jun 20:01:36.156 * DB saved on disk
+32916:M 29 Jun 20:01:36.156 # Redis is now ready to exit, bye bye...

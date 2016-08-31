@@ -1,0 +1,28 @@
+<div class="container">
+    <div id="login-wraper">
+        <legend>数据中心<span class="blue">数据平台</span></legend>
+        <%= form_tag '/system/login/do_login', { method: "POST",class: "form login-form" } do %>
+            <div class="form-group">
+                <%unless flash.blank? %>
+                    <%flash.each do |level, msg| %>
+                        <div class="alert alert-warning" role="alert"><%= msg %></div>
+                    <%end%>
+                <%end%>
+            </div>
+            <div class="form-group has-feedback">
+                <%=text_field_tag :name, nil, class: "form-control", placeholder: "用户名"  %>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <%=password_field_tag :password, nil, class: "form-control", placeholder: "密码" %>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <!-- <div class="form-group">
+                <input type="checkbox" id="inlineCheckbox1" value="option1"> Remember me
+            </div> -->
+            <div class="footer" style="margin-top:60px;">
+              <%= submit_tag "登录", :class => "btn btn-success" %>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %> 
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+        <div class="row">
+          <%= render '/shards/form_template' %>
+        </div>
+          <div class="row">
+            <table id="device_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                  <th tag="report_date" >日期</th>
+                  <th tag="tag" >标签</th>
+                  <th tag="brand" >厂商</th>
+                  <th tag="model" >型号</th>
+                  <th tag="count"  field_exec="delimiter">台数</th>
+                  <th tag="proportion_ratio"   field_exec="percentage">占比</th>
+                  <th tag="success_count"  field_exec="delimiter">成功数</th>
+                  <th tag="success_ratio"  field_exec="percentage">成功率</th>
+                  <th tag="succ_proportion_ratio"  field_exec="percentage">成功占比</th>
+                </tr>
+              </thead>
+              <tbody class="device_content">
+              
+              </tbody>
+            </table>
+          </div>
+      <% end %>
+    </div>
+    
+<% end %>

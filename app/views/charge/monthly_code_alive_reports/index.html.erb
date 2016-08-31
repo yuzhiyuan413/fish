@@ -1,0 +1,31 @@
+<div class="row">
+  <%= render 'search_form' %>
+</div>
+
+<%= render layout: 'shards/iframe_box', locals: { box_title: "包月码留存报表", box_class: "box-primary" } do |box| %>
+  <% case box when Box::Body %>
+    <table style="table-layout:fixed;" id="charge_monthly_code_alive_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th tag="report_date">日期</th>
+          <th tag="code">付费码</th>
+          <th tag="sp_name">渠道</th>
+          <th tag="theory_alive">理论留存</th>
+          <th tag="order_alive">账单留存</th>
+          <th tag="deducted_alive">留存总扣量</th>
+          <th tag="last_month_deducted_alive">上月留存扣量</th>
+          <th tag="order_charged_alive">账单留存付费</th>
+          <th tag="activation">同步新增订购</th>
+          <th tag="order_activation">账单新增订购</th>
+          <th tag="deducted_activation">新增扣量</th>
+          <th tag="order_activation_charged">账单新增付费</th>
+          <th tag="lt_72">&lt;72小时退订</th>
+          <th tag="gt_72">&gt;72小时退订</th>
+          <th tag="unsubscribed_alive">留存退订</th>
+          <th tag="id">操作</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  <% end %>
+<% end %>

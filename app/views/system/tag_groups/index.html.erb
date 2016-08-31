@@ -1,0 +1,38 @@
+<%= render layout: 'shards/default_box', locals: { box_title: "标签组列表"}  do | box |%>
+  <div class="col-md-12 bs-example">
+     <% case box when Box::Body %>
+      <table id="tag_groups_list" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th>标签组名</th>
+            <th>正则匹配表达式</th>
+            <th>是否汇总</th>
+            <th>描述</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @system_tag_groups.each do |system_tag_group| %>
+          <tr>
+            <td><%= system_tag_group.name %></td>
+            <td><%= system_tag_group.regexp %></td>
+            <td><%= system_tag_group.is_sum_group_text %></td>
+            <td><%= system_tag_group.desc %></td>
+            <td>
+              <%= link_to '编辑', edit_system_tag_group_path(system_tag_group) %>
+              <%= link_to '删除', system_tag_group, :method => :delete, :data => { :confirm => '确定要删除吗？' } %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% when Box::Footer %>
+        <%=button_to '新建标签组', new_system_tag_group_path, class: 'btn btn-primary'%>
+      <% end %>
+  </div>
+<% end %>
+<script type="text/javascript">
+    $(function(){
+       init_dataTables("tag_groups_list", {buttons: []});
+    })
+</script>

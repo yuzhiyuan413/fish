@@ -1,0 +1,76 @@
+ <style type="text/css">
+    .row-padding-0{
+      padding-left:0;
+      padding-right: 0;
+      float:left;
+    }
+    .form-control{
+        display:inline;
+        width: 65%;
+    }
+</style>
+<%= form_tag('/seed/lost_reports/index', method: :get,class: "well col-md-12") do %>
+  <div class="row-padding-0" style="width:25%">
+    <div class="form-group">
+      <%= label_tag :group_field, "统计纬度", class: "control-label" %>
+       <select id="group_field" name="group_field" class="form-control input-md select2" style="width:80%">
+            <option value="1">Tag</option>
+            <option value="2">Android API Level</option>
+            <option value="3">Linux Version</option>
+            <option value="4">Brand</option>
+            <option value="5">Model</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <%= label_tag :event_process, "事件过程", class: "control-label" %>
+         <select id="event_process" name="event_process" class="form-control input-md select2"  style="width:80%">
+            <option value="1">种子连网到开始执行</option>
+            <option value="2">开始执行到执行完成</option>
+            <option value="3">执行完成到执行成功</option>
+            <option value="4">执行成功成功到安装成功</option>
+        </select>
+    </div>
+  </div>
+	<div class="row-padding-0" style="width:18%">
+      <div class="col-xs-12 col-md-12">
+        <div class="form-group">
+            <label class="control-label">基准时间</label>
+            <%= text_field_tag :base_start_time, Date.today.ago(1).strftime("%Y-%m-%d 00:00"), {class: "form-control hourpicker",size: "18" ,style:"width:70%"} %>
+        </div>
+        <div class="form-group">
+            <label class="control-label">比较时间</label>
+             <%= text_field_tag :compare_start_time, (Date.today-2).strftime("%Y-%m-%d 00:00"), {class: "form-control hourpicker",size: "18" ,style:"width:70%"} %>
+
+        </div>
+      </div>
+  </div>
+  <div class="row-padding-0" style="width:15%">
+      <div class="col-xs-12 col-md-12">
+        <div class="form-group">
+            <%= text_field_tag :base_stop_time, Date.today.ago(1).strftime("%Y-%m-%d 23:59"), {class: "form-control hourpicker",size: "18" ,style:"width:95%"} %>
+        </div>
+        <div class="form-group">
+             <%= text_field_tag :compare_stop_time, (Date.today-2).strftime("%Y-%m-%d 23:59"), {class: "form-control hourpicker",size: "18" ,style:"width:95%"} %>
+
+        </div>
+      </div>
+  </div>
+  <div class="row-padding-0" style="width:27%">
+     <div class="form-group" >
+      <%= label_tag :plan_id, "方案", class: "control-label" %>
+      <%= select_tag :plan_id, solution_plan_options, {  class: "form-control input-md select2", style:"width:70%;"}  %>
+    </div>
+    <div class="form-group" >
+      <%= label_tag :tag, "标签", class: "control-label" %>
+      <%= select_tag :tag, lost_report_tag_options, {  class: "form-control input-md select2", style:"width:70%;"}  %>
+    </div>
+  </div>
+  <div class="row-padding-0" style="width:8%">
+    <div class="form-group" >
+      <button flag = "0" type="button" class="btn lost_btn btn-info">查询</button>
+    </div>
+    <div class="form-group" >
+      <button flag = "1" type="button" class="btn lost_btn btn-default">比较</button>
+    </div>
+  </div>
+<% end %>

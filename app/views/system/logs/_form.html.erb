@@ -1,0 +1,9 @@
+<form action="<%= log_file_system_logs_url%>" method="GET" class ="well col-md-12">
+  显示:<input type="text" name="line" value="<%=@line%>" size="4">行
+  包含:<input type="text" name="grep" value="<%=@grep%>" size="50">
+  前:<input type="text" name="before" value="<%=@before%>" size="3">行
+  后:<input type="text" name="after" value="<%=@after%>" size="3">行
+  <input type="submit" value="刷新" class = "btn btn-default">
+  <input type="hidden" name="logfile" value="<%=@log_file%>">
+  <input type="hidden" name="logdir" value="<%=@log_dir%>">
+</form>

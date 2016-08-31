@@ -1,0 +1,144 @@
+<div id="readme" class="readme blob instapaper_body" style="margin-top:50px">
+  <article class="markdown-body entry-content" itemprop="text">
+    <h1>
+      <a id="user-content-redis-stores-for-ruby-on-rails" class="anchor" href="#redis-stores-for-ruby-on-rails" aria-hidden="true">
+      </a>数据生成脚本配置说明
+    </h1>
+
+    <p><strong><code>report_generator.rb</code></strong> 提供数据生成报表的配置信息 (<em>Section</em>, <em>Report</em>) for
+      <strong>Ruby on Rails</strong>.</p>
+
+    <h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true">
+      <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+        <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+      </svg>
+    </a>Section配置块
+    </h2>
+    <p><code>Section</code>代表一个数据片，用于获取报表字段的值</p>
+    <div class="highlight highlight-source-ruby"><pre>
+section :seed_activation do
+    data_source BeeDs::SeedUser
+    count :uid
+    condition do
+      activation_time DateTime.parse('20160607').beginning_of_day..DateTime.parse('20160607').end_of_day
+    end
+    group :activating_tag
+    sum_group :activating_tag, Distributers::TagDistributer
+end
+    </pre>
+    </div>
+    <p><code>data_source</code> 数据片对应数据源的model类</p>
+    <p><code>count</code> 统计字段的个数,处理后的结果如(<strong>count_字段</strong>)</p>
+    <p><code>distinct_count</code> 统计字段的个数,并去掉重复的值,处理后的结果如(<strong>count_distinct_字段</strong>)</p>
+    <p><code>condition</code> 数据片查询条件 </p>
+    <div class="highlight highlight-source-ruby">
+  <pre>
+<span style="background-color: #CDCDC1;">#条件块</span>
+condition do
+  activation_time DateTime.parse('20160607').beginning_of_day..DateTime.parse('20160607').end_of_day
+end
+
+<span style="background-color: #CDCDC1;">#条件hash</span>
+condition({activation_time: DateTime.parse('20160502').beginning_of_day..DateTime.parse('20160502').end_of_day})
+  </pre>
+    </div>
+    <p><code>join</code> 联接另一张表。使用方法：<strong>join "inner join users on seed_users.uid = users.current_uuid"</strong></p>
+    <p><code>group</code> 根据某字段分组，使用方法：<strong>group :tag</strong></p>
+    <p><code>sum_group</code> 根据分组器做汇总计数，使用方法：<code>sum_group Distributers::TagDistributer</code>其中Distributers::TagDistributer为分组器</p>
+    <h2><a id="user-content-installation" class="anchor" href="#installation" aria-hidden="true">
+      <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+        <path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+      </svg>
+    </a>Report配置块
+    </h2>
+
+    <p><code>Report</code>定义报表，以及每个列与section的映射关系</p>
+    <div class="highlight highlight-source-ruby">
+
+      <pre>
+report :seed_activity_report do
+    report_model Seed::ActivityReport
+    initialize_fields do
+      report_time Date.today
+      tag
+    end
+
+    field :activation_num  do
+      section :seed_activation
+      columns :activating_tag, :count_uid
+    end
+
+    field :activity_num, :request_num  do
+      section :seed_activity
+      columns :activating_tag, :count_distinct_request_histories_uid, :count_request_histories_id
+    end
+
+    before_save do |records|
+      brand_limit_records(records, :manufacturer, "厂商", 30)
+    end
+
+    after_save do
+      System::TagGroup.reset_tags_options_cache(Seed::PropReport, System::Constant::PICK_OPTIONS[Seed::PropReport])
+    end
+
+    clear_table do
+      report_date  Date.today
+    end
+end
+    </pre>
+    </div>
+    <p><code>report_model</code>报表的model类</p>
+    <p><code>initialize_fields</code>报表的初始化字段,传递一个代码块，块内是具体的字段和对应的初始值,初始值可以为空(如:<strong>tag</strong>).如下:</p>
+    <div class="highlight highlight-source-ruby">
+      <pre>
+initialize_fields do
+    report_time Date.today
+    tag
+end
+</pre>
+    </div>
+    <p>
+      <code>field</code>报表字段,可以多个.代码块中<strong>section</strong>对应现有的section名，<strong>columns</strong>对应的是报表的字段列,其中<strong>field</strong>配置满足这样的规则(<strong>initialize_fields</strong>中为空的字段和<strong>columns</strong>配置内的字段顺序对应,对应结束后,<strong>field</strong>字段和剩下的字段进行顺序对应)如下:
+    </p>
+    <div class="highlight highlight-source-ruby"><pre>
+field :activation_num  do
+    section :seed_activation
+    columns :activating_tag, :count_uid  <span style="background-color: #CDCDC1;">#tag和activating_tag对应，activation_num和count_uid对应</span>
+end
+</pre>
+    </div>
+    <p>
+      <code>expr</code>表达式字段.类似<strong>(? / ?)</strong>,<strong>?</strong>代表一个实际报表字段的占位,如下:
+    </p>
+    <div class="highlight highlight-source-ruby"><pre>
+field :avg_request_times do
+    expr "? / ?", :request_times, :activity_num
+end
+</pre>
+    </div>
+    <p><code>before_save</code>报表在保存前的操作，传递一个代码块</p>
+    <div>
+<pre>
+before_save do
+   #保存前
+end
+</pre>
+    </div>
+    <p><code>after_save</code>报表在保存后的操作，传递一个代码块</p>
+    <div class="highlight highlight-source-ruby">
+<pre>
+after_save do
+   #保存后
+end
+</pre>
+    </div>
+    <p><code>clear_table</code>清除报表，传递一个代码块，块内是清除条件</p>
+    <div class="highlight highlight-source-ruby">
+<pre>
+clear_table do
+    report_date  Date.today
+end
+</pre>
+    </div>
+  </article>
+</div>

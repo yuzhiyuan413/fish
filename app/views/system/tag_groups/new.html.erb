@@ -1,0 +1,9 @@
+<%= render layout: 'shards/default_box', locals: { box_title: "新建标签组", box_class: "box-primary", box_grid: "col-md-6" }  do |box|%>
+	<div class="col-md-12">
+		<% case box when Box::Body %>
+		  <%= render 'form' %>
+		<% when Box::Footer %>
+			<%=button_to '返回', system_tag_groups_path, class: 'btn btn-primary'%>
+		<% end %>
+	</div>
+<%end%>

@@ -1,0 +1,22 @@
+<%= render layout: 'shards/default_box', locals: { box_title: "日志目录列表"}  do | box |%>
+  <div class="col-md-5">
+    <% case box when Box::Body %>
+      <%= render 'dir_list'%>
+    <%end%>
+	</div>
+<%end%>
+
+<%= render layout: 'shards/default_box', locals: { box_title: "日志文件列表"}  do | box |%>
+	<div class="col-md-5">
+		<% case box when Box::Body %>
+			<ul class="list-group">
+				<%@log_files.each do |log_file|%>
+			    <li class="list-group-item">
+						<%= link_to log_file, log_file_system_logs_url(:logfile => log_file,:logdir => @log_dir)%>
+						<%= link_to 'Download', down_log_system_logs_url(:logfile => log_file,:logdir => @log_dir)%>
+			    </li>
+			  <% end %>
+			</ul>
+		<%end%>
+	</div>
+<%end%>

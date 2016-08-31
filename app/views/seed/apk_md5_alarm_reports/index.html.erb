@@ -1,0 +1,58 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %> 
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <!-- <div class="row">
+          <%#= render '/shards/form_template' %>
+        </div> -->
+         <div class="row well">
+          <strong>包篡改</strong>
+        </div>
+          <div class="row">
+            <table id="apk_md5_alarm_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+              <thead>
+              <tr>
+                <th>标签</th>
+                <th>激活用户数</th>
+                <th>篡改用户数</th>
+                <th>篡改率</th>
+                <th>标签创建时间</th>
+              </tr>
+              </thead>
+              <tbody>
+                <% @apk_md5_alarm_reports.each do |apk_md5_alarm_report| %>
+                  <tr>
+                    <td>
+                    <%= link_to(apk_md5_alarm_report.tag, { :controller => "seed/seed_apk_md5_alarms",
+                      :action => "index",
+                      :seed_seed_apk_md5_alarm => { :tag => apk_md5_alarm_report.tag} })%>
+                    </td>
+                    <td><%= number_with_delimiter(apk_md5_alarm_report.user_total_count) %></td>
+                    <td><%= number_with_delimiter(apk_md5_alarm_report.abnormal_user_count) %></td>
+                    <% ratio = apk_md5_alarm_report.abnormal_user_count.to_f/apk_md5_alarm_report.user_total_count.to_f%>
+                    <td><%= number_to_percentage((ratio * 100), :precision => 2 ) %></td>
+                    <td><%=apk_md5_alarm_report.tag_created_at.blank? ? "" : apk_md5_alarm_report.tag_created_at.strftime('%Y%m%d') %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+
+              <tfoot>
+                <% unless @md5_alarm_sum_record.blank? %>
+                  <tr class="well">
+                      <td>总计</td>
+                      <td><%= number_with_delimiter(@md5_alarm_sum_record.user_total_count) %></td>
+                      <td><%= number_with_delimiter(@md5_alarm_sum_record.abnormal_user_count) %></td>
+                      <td><%= number_to_percentage((@md5_alarm_sum_record.abnormal_user_count.to_f/@md5_alarm_sum_record.user_total_count.to_f) * 100, :precision => 2 ) %></td>
+                      <td></td>
+                  </tr>
+                <% end -%>
+              </tfoot>
+            </table>
+          </div>
+      <% end %>
+    </div>
+<% end %>
+<script type="text/javascript">
+  $(function(){
+    init_dataTables("apk_md5_alarm_report_list");
+  })
+</script>

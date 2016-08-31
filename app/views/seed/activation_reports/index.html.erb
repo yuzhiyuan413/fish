@@ -1,0 +1,40 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <div class="row">
+            <%= render '/shards/form_template' %>
+          </div>
+          <div class="row">
+            <table id="activation_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+              <thead>
+              <tr>
+                <th tag="report_time" >日期</th>
+                <th tag="partner" >渠道名</th>
+                <th tag="tag">标签</th>
+                <th tag="seed_activation_num"  field_exec="delimiter">应用激活数</th>
+                <th tag="panda_activation_num"  field_exec="delimiter">实际激活数</th>
+                <th tag="old_user_active_num"  field_exec="delimiter">老用户</th>
+                <th tag="old_user_activity_num"  field_exec="delimiter">老用户计费二月内活跃</th>
+                <th tag="bash_activation_num"  field_exec="delimiter">计费三日转化</th>
+                <th tag="bash_activation_ratio"  field_exec="percentage">计费三日转化率</th>
+              </thead>
+              <tfoot class="well">
+                  <tr index="0">
+                    <td>总计</td>
+                    <td></td>
+                    <td></td>
+                    <td tag="seed_activation_num" field_exec="delimiter"></td>
+                    <td tag="panda_activation_num" field_exec="delimiter"></td>
+                    <td tag="old_user_active_num" field_exec="delimiter"></td>
+                    <td tag="old_user_activity_num" field_exec="delimiter"></td>
+                    <td tag="bash_activation_num" field_exec="delimiter"></td>
+                    <td tag="bash_activation_ratio" field_exec="percentage"></td>
+                  </tr>
+              </tfoot>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+      <% end %>
+    </div>
+<% end %>

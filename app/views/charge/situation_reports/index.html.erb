@@ -1,0 +1,45 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+
+      <% case box when Box::Body %>
+          <div class="row">
+            <%= render '/shards/form_template' %>
+          </div>
+          <div class="row" >
+            <table id="charge_situation_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+
+              <thead>
+                <th tag="record_time" >日期</th>
+                <th tag="activation_num"  field_exec="delimiter">新增用户</th>
+                <th tag="activity_num"  field_exec="delimiter">活跃用户</th>
+                <th tag="request_times"  field_exec="delimiter">联网次数</th>
+                <th tag="avg_request_times"  field_exec="precision">平均每用户联网</th>
+              </thead>
+              <tbody>
+             
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <div class="row" >
+            <table id="charge_situation_detail_list" class="table table-bordered table-hover" cellspacing="0" width="100%"> 
+              <thead>
+                <th tag="total_activation_num" field_exec="delimiter">累计用户</th>
+                <th tag="yesterday_activation_num" field_exec="delimiter">昨日新增</th>
+                <th tag="ratio_yesterday_activation" field_exec="percentage">昨日新增占比</th>
+                <th tag="yesterday_activity_num" field_exec="delimiter">昨日活跃</th>
+                <th tag="ratio_yesterday_activity" field_exec="percentage">昨日活跃占比</th>
+                <th tag="activity7" field_exec="delimiter">7日活跃</th>
+                <th tag="ratio_activity7" field_exec="percentage">7日活跃占比</th>
+                <th tag="activity30" field_exec="delimiter">30日活跃</th>
+                <th tag="ratio_activity30" field_exec="percentage">30日活跃占比</th>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+      </div> 
+<% end %>
+
+

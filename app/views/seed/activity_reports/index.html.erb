@@ -1,0 +1,26 @@
+<%= render layout: 'shards/default_box', locals: { box_title: "活跃用户"}  do | box |%>
+<div class="col-md-12">
+  <% case box when Box::Body %>
+    <div class="row">
+      <%= render '/shards/form_template' %>
+    </div>
+    <div class="row">
+      <table id="activity_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th tag="report_time" >日期</th>
+            <th tag="tag" >标签</th>
+            <th tag="seed_activity_num"  field_exec="delimiter">Seed活跃用户数</th>
+            <th tag="v9_activity_num"  field_exec="delimiter">v9活跃用户数</th>
+            <th tag="seed_request_avg"   field_exec="precision">Seed平均每用户联网次数</th>
+            <th tag="v9_request_avg"   field_exec="precision">v9平均每用户联网次数</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+  </div>
+  <% end %>
+</div>
+<% end %>

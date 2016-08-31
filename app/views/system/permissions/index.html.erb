@@ -1,0 +1,46 @@
+<%= render layout: 'shards/default_box', locals: { box_title: "权限列表"}  do | box |%>
+  <div class="col-md-12">
+    <% case box when Box::Body %>
+      <table id="permissions_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+        <thead>
+    			<th>编号</th>
+          <th>对象</th>
+          <th>对象类型</th>
+          <th>子系统</th>
+          <th>功能</th>
+          <th>操作类型</th>
+          <th>访问类型</th>
+          <th>操作</th>
+        </thead>
+        <tbody>
+          <% @permissions.length.times do |i| permission = @permissions[i] %>
+            <% up_n = @permissions[i-1] if i!=0 %>
+            <% down_n = @permissions[i+1] %>
+            <tr>
+              <td><%= permission.id %></td>
+              <td><%= permission.link.name %></td>
+              <td><%= permission.link_type %></td>
+              <td><%= subsystem_name(permission) %></td>
+              <td><%= function_name(permission) %></td>
+              <td><%= permission.operates_name %></td>
+              <td><%= permission.status_name %></td>
+              <td>
+                <%= link_to '删除', permission, :confirm => '确认删除?', :method => :delete %>
+        				<%= link_to '编辑', "#{edit_system_permission_path(permission)}?link_type=#{params[:link_type]}&link_id=#{params[:link_id]}" %>
+        				<%= link_to '上', "#{sort_system_permissions_url}?m=#{permission.id}&n=#{up_n.id}", :method => :get if up_n%>
+        				<%= link_to '下', "#{sort_system_permissions_url}?m=#{permission.id}&n=#{down_n.id}", :method => :get if down_n%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% when Box::Footer %>
+      <%=button_to '添加权限', "#{new_system_permission_path}?link_type=#{params[:link_type]}&link_id=#{params[:link_id]}", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+<% end %>
+<script type="text/javascript">
+    $(function(){
+      init_dataTables("permissions_list", {buttons: [], ordering: false});
+    })
+</script>

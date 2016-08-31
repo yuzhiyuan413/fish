@@ -1,0 +1,97 @@
+<div class="row">
+  <% url = "/charge/monthly_code_downlink_reports/index" %>
+  <% html_options = {id: 'view_form', class: "well col-md-12", role: "form", url: url, 'form-name' => "charge_monthly_code_downlink_report"} %>
+  <%= form_for @report, url: url, html: html_options, method: 'get' do |f| %>
+    <div id="view_form_div">
+      <div class="col-sm-2 form-horizontal" id="from_date">
+        <%= f.text_field :from_date, class: "form-control monthpicker" %>
+      </div>
+
+      <div class="col-sm-2 form-horizontal" id="end_date">
+        <%= f.text_field :end_date, class: "form-control monthpicker" %>
+      </div>
+
+      <div class="col-sm-2 form-horizontal" id="select_service_type">
+        <%= f.select :code_name, downlink_code_names, {include_blank: true}, {class: "form-control input-md select2"} %>
+      </div>
+    </div>
+
+    <div class="col-sm-1 form-horizontal">
+      <%= f.submit "查询", class: "btn btn-primary", name: '' %>
+     </div>
+  <% end %>
+</div>
+
+<%= render layout: 'shards/iframe_box', locals: { box_title: "中天包月码下行报表", box_class: "box-primary" } do |box| %>
+  <% case box when Box::Body %>
+    <table id="charge_monthly_code_downlink_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th tag="report_date">日期</th>
+          <th tag="report_type">报表类型</th>
+          <th tag="code_name">码名称</th>
+          <th width="9%" tag="deliver_users_num">下发</th>
+          <th width="9%" tag="theory_successful_users_num">理论回传</th>
+          <th width="9%" tag="activation_users_num">新增订购</th>
+          <th width="9%" tag="lt_72_unsubscribed_users_num">&lt;72小时退订</th>
+          <th width="9%" tag="gt_72_unsubscribed_users_num">&gt;72小时退订</th>
+          <th width="9%" tag="no_downlink_users_num">下发为0</th>
+          <th width="9%" tag="low_downlink_users_num">下发不达标</th>
+          <th width="9%" tag="successful_users_num">计费成功</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @results.each do |res| %>
+          <tr class="row-total" data-row-id="<%= res[:total].link_id %>">
+            <td>
+              <a class="expandable-arrow"><span class="glyphicon glyphicon-triangle-right"></span></a>
+              <span><%= res[:total].report_date.strftime("%Y年%m月") %></span>
+            </td>
+            <td><%= res[:total].report_type %></td>
+            <td><%= res[:total].code_name %></td>
+            <td><%= res[:total].deliver_users_num %></td>
+            <td><%= res[:total].theory_successful_users_num %></td>
+            <td><%= res[:total].activation_users_num %></td>
+            <td><%= res[:total].lt_72_unsubscribed_users_num %></td>
+            <td><%= res[:total].gt_72_unsubscribed_users_num %></td>
+            <td><%= res[:total].no_downlink_users_num %></td>
+            <td><%= res[:total].low_downlink_users_num %></td>
+            <td><%= res[:total].successful_users_num %></td>
+          </tr>
+          <% res[:daily].each do |daily_res| %>
+            <tr class="row-daily" data-row-id="<%= daily_res.link_id %>">
+              <td style="padding-left: 30px;"><%= daily_res.report_date %></td>
+              <td><%= daily_res.report_type %></td>
+              <td><%= daily_res.code_name %></td>
+              <td><%= daily_res.deliver_users_num %></td>
+              <td><%= daily_res.theory_successful_users_num %></td>
+              <td><%= daily_res.activation_users_num %></td>
+              <td><%= daily_res.lt_72_unsubscribed_users_num %></td>
+              <td><%= daily_res.gt_72_unsubscribed_users_num %></td>
+              <td><%= daily_res.no_downlink_users_num %></td>
+              <td><%= daily_res.low_downlink_users_num %></td>
+              <td><%= daily_res.successful_users_num %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>
+
+<style type="text/css">
+  .row-total {
+    background-color: #f9f9f9;
+    font-weight: bold;
+  }
+
+  .row-daily {
+    display: none;
+  }
+
+  .expandable-arrow {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+  }
+</style>

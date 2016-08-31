@@ -1,0 +1,84 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <div class="row">
+            <%= render '/shards/form_template' %>
+          </div>
+          <div class="row">
+          <table id="conversion_reports_list" th-index="1" class="table table-bordered table-hover" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th colspan="2">获取Url</th>
+              <th colspan="2">下载包</th>
+              <th colspan="2">合并包</th>
+              <th colspan="2">启动包</th>
+              <th colspan="2">种子联网</th>
+              <th colspan="2">种子执行</th>
+            </tr>
+            <tr>
+              <th tag="report_date">日期</th>
+              <th tag="tag">标签</th>
+              <th tag="app_activation" field_exec="delimiter">应用激活</th>
+              <th tag="get_url" field_exec="delimiter">数值</th>
+              <th tag="get_url_ratio" field_exec="percentage">绝对比</th>
+              <th tag="download_jar" field_exec="delimiter">数值</th>
+              <th tag="download_jar_ratio" field_exec="percentage">绝对比</th>
+              <th tag="merge_jar" field_exec="delimiter">数值</th>
+              <th tag="merge_jar_ratio" field_exec="percentage">绝对比</th>
+              <th tag="launch_jar" field_exec="delimiter">数值</th>
+              <th tag="launch_jar_ratio" field_exec="percentage">绝对比</th>
+              <th tag="seed_active_aid" field_exec="delimiter">数值</th>
+              <th tag="seed_active_aid_ratio" field_exec="percentage">绝对比</th>
+              <th tag="seed_executed_aid" field_exec="delimiter">数值</th>
+              <th tag="seed_executed_aid_ratio" field_exec="percentage">绝对比</th>
+            </tr>
+            </thead>
+            <tfoot class="well">
+                <tr index="0">
+                  <td>
+                    总计平均
+                  </td>
+                  <td></td>
+                  <td tag="app_activation" field_exec="delimiter"></td>
+                  <td tag="get_url" field_exec="delimiter"></td>
+                  <td tag="get_url_ratio" field_exec="percentage"></td>
+                  <td tag="download_jar" field_exec="delimiter"></td>
+                  <td tag="download_jar_ratio" field_exec="percentage"></td>
+                  <td tag="merge_jar" field_exec="delimiter"></td>
+                  <td tag="merge_jar_ratio" field_exec="percentage"></td>
+                  <td tag="launch_jar" field_exec="delimiter"></td>
+                  <td tag="launch_jar_ratio" field_exec="percentage"></td>
+                  <td tag="seed_active_aid" field_exec="delimiter"></td>
+                  <td tag="seed_active_aid_ratio" field_exec="percentage"></td>
+                  <td tag="seed_executed_aid" field_exec="delimiter"></td>
+                  <td tag="seed_executed_aid_ratio" field_exec="percentage"></td>
+                </tr>
+                <tr index="1">
+                  <td>中位数</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td tag="get_url_ratio" field_exec="percentage">
+                  </td>
+                  <td></td>
+                  <td tag="download_jar_ratio" field_exec="percentage"></td>
+                  <td></td>
+                  <td tag="merge_jar_ratio" field_exec="percentage"></td>
+                  <td></td>
+                  <td tag="launch_jar_ratio" field_exec="percentage"></td>
+                  <td></td>
+                  <td tag="seed_active_aid_ratio" field_exec="percentage"></td>
+                  <td></td>
+                  <td tag="seed_executed_aid_ratio" field_exec="percentage"></td>
+                </tr>
+            </tfoot>
+            <tbody>
+            </tbody>
+          </table>
+          </div>
+      <% end %>
+    </div>
+<% end %>

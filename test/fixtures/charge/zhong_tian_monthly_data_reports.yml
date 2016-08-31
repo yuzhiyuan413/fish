@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  report_date: 2016-08-16
+  service_id: 1
+  service_type: MyString
+  user_num: 1
+
+two:
+  report_date: 2016-08-16
+  service_id: 1
+  service_type: MyString
+  user_num: 1

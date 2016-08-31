@@ -1,0 +1,84 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <div class="row">
+            <%= render '/shards/form_template' %>
+          </div>
+          <div class="row">
+            <table id="arrival_report_list" th-index="1" class="table table-bordered table-hover" cellspacing="0" width="100%">
+              <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th colspan="2">种子联网</th>
+                <th colspan="2">种子执行</th>
+                <th colspan="2">执行完成</th>
+                <th colspan="2">执行成功</th>
+                <th colspan="2">支付安装成功</th>
+                <th colspan="2">支付启动成功</th>
+                <th colspan="2">支付联网</th>
+                <th colspan="2">支付安装失败</th>
+                <th colspan="2">存在V8</th>
+                <th colspan="2">存在V9</th>
+              </tr>
+              <tr>
+                <th tag="report_date" >日期</th>
+                <th tag="tag" >标签</th>
+                <th tag="seed_activation"  field_exec="delimiter">种子AID激活</th>
+                <th tag="seed_active"  field_exec="delimiter">数值</th>
+                <th tag="seed_active_ratio"  field_exec="percentage">绝对比</th>
+                <th tag="seed_executing"  field_exec="delimiter">数值</th>
+                <th tag="seed_executing_ratio"  field_exec="percentage">绝对比</th>
+                <th tag="seed_executied"  field_exec="delimiter">数值</th>
+                <th tag="seed_executied_ratio"  field_exec="percentage">绝对比</th>
+                <th tag="seed_successed"  field_exec="delimiter">数值</th>
+                <th tag="seed_successed_ratio"  field_exec="percentage">绝对比</th>
+                <th tag="seed_installed"  field_exec="delimiter">数值</th>
+                <th tag="seed_installed_ratio"  field_exec="percentage">绝对比</th>
+                <th tag="seed_started"  field_exec="delimiter">数值</th>
+                <th tag="seed_started_ratio"  field_exec="percentage">绝对比</th>
+                <th tag="v9_activity"  field_exec="delimiter">数值</th>
+                <th tag="v9_activity_ratio"  field_exec="percentage">绝对比</th>
+                <th tag="seed_failed"  field_exec="delimiter">数值</th>
+                <th tag="seed_failed_ratio"  field_exec="percentage">绝对比</th>
+                <th tag="seed_v8_exists"  field_exec="delimiter">数值</th>
+                <th tag="seed_v8_exists_ratio"  field_exec="percentage">安装占比</th>
+                <th tag="seed_v9_exists"  field_exec="delimiter">数值</th>
+                <th tag="seed_v9_exists_ratio"  field_exec="percentage">安装占比</th>
+              </tr>
+              </thead>
+              <tfoot class="well">
+                <tr index="0">
+                  <td>小计</td>
+                  <td></td>
+                  <td tag="seed_activation" field_exec="delimiter"></td>
+                  <td tag="seed_active" field_exec="delimiter"></td>
+                  <td tag="seed_active_ratio" field_exec="percentage"></td>
+                  <td tag="seed_executing" field_exec="delimiter"></td>
+                  <td tag="seed_executing_ratio" field_exec="percentage"></td>
+                  <td tag="seed_executied" field_exec="delimiter"></td>
+                  <td tag="seed_executied_ratio" field_exec="percentage"></td>
+                  <td tag="seed_successed" field_exec="delimiter"></td>
+                  <td tag="seed_successed_ratio" field_exec="percentage"></td>
+                  <td tag="seed_installed" field_exec="delimiter"></td>
+                  <td tag="seed_installed_ratio" field_exec="percentage"></td>
+                  <td tag="seed_started" field_exec="delimiter"></td>
+                  <td tag="seed_started_ratio" field_exec="percentage"></td>
+                  <td tag="v9_activity" field_exec="delimiter"></td>
+                  <td tag="v9_activity_ratio" field_exec="percentage"></td>
+                  <td tag="seed_failed" field_exec="delimiter"></td>
+                  <td tag="seed_failed_ratio" field_exec="percentage"></td>
+                  <td tag="seed_v8_exists" field_exec="delimiter"></td>
+                  <td tag="seed_v8_exists_ratio" field_exec="percentage"></td>
+                  <td tag="seed_v9_exists" field_exec="delimiter"></td>
+                  <td tag="seed_v9_exists_ratio" field_exec="percentage"></td>
+                </tr>
+              </tfoot>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+      <% end %>
+    </div>
+<% end %>

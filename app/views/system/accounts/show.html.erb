@@ -1,0 +1,21 @@
+<div class="top_subnav">
+  系统管理 > 帐号管理
+</div>
+
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @account.password %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @account.status %>
+</p>
+
+<%= link_to 'Edit', edit_system_account_path(@account) %> |
+<%= link_to 'Back', system_accounts_path %>

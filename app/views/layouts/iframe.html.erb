@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>数据中心 - 数据平台</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container-fluid" style="margin:20px 40px;">
+        <%= yield %>
+    </div>
+    <div class="go-top">
+      <div class="arrow"></div>
+      <div class="stick"></div>
+    </div>
+<!--     <span id="go-top-span">返回顶部</span> -->
+    <%= javascript_include_tag  params[:controller], 'data-turbolinks-track' => true  if include_model_js? %>
+    <%= javascript_include_tag 'adminlte', 'data-turbolinks-track' => true %>
+  </body>
+
+</html>
+<script type="text/javascript">
+  $('.monthpicker').datetimepicker({
+        locale: 'zh-cn',
+        viewMode: 'years',
+        format: 'YYYY/MM'
+    });
+    $('.datepicker').datetimepicker({
+        locale: 'zh-cn',
+        viewMode: 'days',
+        format: 'YYYY-MM-DD'
+    });
+     $('.hourpicker').datetimepicker({
+        locale: 'zh-cn',
+        format: 'HH'
+    });
+</script>

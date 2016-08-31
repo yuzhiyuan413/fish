@@ -1,0 +1,5 @@
+<%= render layout: 'shards/default_box', locals: { box_title: "添加权限", box_class: "box-primary", box_grid: "col-md-6" }  do |box|%>
+	<div class="col-md-12">
+		<%= render 'form' if box.eql? Box::Body %>
+	</div>
+<% end %>

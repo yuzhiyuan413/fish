@@ -1,0 +1,63 @@
+<div class="row">
+  <%= render 'form' %>
+</div>
+
+<div class="row monitor_div" >
+ 	<%= render layout: 'shards/default_box', locals: { box_title: "支付分析报表", box_class: "box-primary"} do |box| %>
+	<div class="col-md-12" >
+		<% case box when Box::Body %>
+			<div class="row">
+    		<table style="table-layout:fixed;"  id="analysis_report_list" th-index="0"  class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+    			<thead>
+            <tr>
+              <th tag="report_date">时间</th>
+              <th tag="code_union_name">码名称</th>
+              <th tag="province">省份</th>
+              <th tag="city">城市</th>
+              <th tag="operator">运营商</th>
+							<th tag="business_coding">码的类型</th>
+              <th tag="sp_name">SP渠道</th>
+              <th tag="sp_company">SP公司</th>
+              <th tag="current_tag">标签</th>
+              <th tag="activity_num"  field_exec="delimiter">活跃用户</th>
+              <th tag="deliver_num" field_exec="delimiter" class="unit">下发</th>
+              <th tag="feedback_num" field_exec="delimiter" class="unit">理论回传成功</th>
+              <th tag="sp_feedback_num" field_exec="delimiter" class="unit">SP回传</th>
+              <th tag="deliver_ratio" field_exec="percentage">下发率</th>
+              <th tag="feedback_radio" field_exec="percentage">理论回传成功率</th>
+              <th tag="sp_feedback_ratio" field_exec="percentage">SP回传成功率</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot class="well">
+              <tr index="0">
+                <td>小计</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td tag="activity_num" field_exec="delimiter"></td>
+                <td tag="deliver_num" class="unit" field_exec="delimiter"></td>
+                <td tag="feedback_num" class="unit" field_exec="delimiter"></td>
+                <td tag="sp_feedback_num" class="unit" field_exec="delimiter"></td>
+                <td tag="deliver_ratio" field_exec="percentage"></td>
+                <td tag="feedback_radio" field_exec="percentage"></td>
+                <td tag="sp_feedback_ratio" field_exec="percentage"></td>
+              </tr>
+
+            </tfoot>
+    		</table>
+    	</div>
+		<% end %>
+	</div>
+
+<% end %>
+
+</div>
+

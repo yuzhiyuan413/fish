@@ -1,0 +1,6 @@
+<%= render layout: 'shards/default_box', locals: { box_title: "日志目录列表"}  do | box |%>
+  <div class="col-md-5">
+    <% case box when Box::Body %>
+      <%= render 'dir_list'%>
+    <% end %>
+<% end %>

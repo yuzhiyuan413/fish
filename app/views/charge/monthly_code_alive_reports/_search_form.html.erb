@@ -1,0 +1,31 @@
+<% url = "/charge/monthly_code_alive_reports/index" %>
+<% html_options = {id: 'view_form', class: "well col-md-12", role: "form", url: url, 'form-name' => "charge_monthly_code_alive_report"} %>
+<%= form_for @alive_report, url: url, html: html_options, method: 'get' do |f| %>
+  <div id="view_form_div">
+    <div class="col-sm-2 form-horizontal" id = "datetime_month">
+      <%= f.text_field :from_date, class: "form-control monthpicker" %>
+    </div>
+
+    <div class="col-sm-2 form-horizontal" id = "datetime_month">
+      <%= f.text_field :end_date, class: "form-control monthpicker" %>
+    </div>
+
+    <div class="col-sm-2 form-horizontal" id="input_code">
+      <%= f.text_field :code, {:class=>"form-control input-md", placeholder: '付费指令'} %>
+    </div>
+
+    <div class="col-sm-2 form-horizontal" id="input_dest_number">
+      <%= f.text_field :dest_number, {:class=>"form-control input-md", placeholder: '接收端号码'} %>
+    </div>
+
+    <div class="col-sm-2 form-horizontal" id="select_sp_id">
+        <%= f.select :sp_id, service_provider_options, {include_blank: true}, {class: "form-control input-md select2"} %>
+    </div>
+  </div>
+
+  <div class="col-sm-1 form-horizontal">
+    <button class="btn btn-primary ladda-button" data-style="zoom-in" name="" type="button">
+      <span class="ladda-label">查询</span>
+    </button>
+   </div>
+<% end %>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>数据中心 - 数据平台</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="skin-blue layout-top-nav">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+      <!-- The top header -->
+      <%=render 'shards/main_header'%>
+      <!-- Left side column. contains the sidebar -->
+     
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+        </section>
+        <!-- Main content -->
+        <section class="content">
+          <%= yield %>
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+      <!-- The bottom footer -->
+      <%=render 'shards/main_footer'%>
+      <!-- The right style sidebar -->
+      <%=render 'shards/control_sidebar'%>
+    </div><!-- ./wrapper -->
+    <div class="go-top">
+      <div class="arrow"></div>
+      <div class="stick"></div>
+    </div>
+    <%= javascript_include_tag  params[:controller], 'data-turbolinks-track' => true  if include_model_js? %>
+    <%= javascript_include_tag 'adminlte', 'data-turbolinks-track' => true %>
+    <script type="text/javascript">
+      // getFontSize();
+      // $(window).resize(function(){
+        // getFontSize();
+        // setColumnsStyle();
+      // })
+    </script>
+  </body>
+</html>

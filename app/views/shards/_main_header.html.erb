@@ -1,0 +1,80 @@
+<header class="main-header">
+  <!-- 横向菜单后控制header不出现黑色top -->
+  <a href="#" class="logo" style="width:0px;padding: 10px;"></a>
+   
+  <!-- 含sidebar模式logo -->
+   <!--  <a href="#" class="logo">
+      <span class="logo-mini"><b>T</b></span>
+      <span class="logo-lg"><b>Tiger</b>Data</span>
+    </a>  -->
+  
+  <nav class="navbar navbar-static-top">
+
+    <div class="navbar-header">
+      <div class="navbar-brand" style="cursor:default;"><b>Tiger</b>Data</div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    <!-- Sidebar toggle button-->
+ <!--    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a> -->
+
+     <ul class="nav navbar-nav">
+        <% sidebar_menu_cache(current_account["id"]).each do |treeview| %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%= treeview.name %> <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <% treeview.treeview_menu.each do |item| %>
+            <li><a href="<%= item.url%>"><%= item.name %></a></li>
+            <% end %>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="<%= image_path("user2-160x160.jpg") %>" class="user-image" alt="User Image" />
+            <span class="hidden-xs"><%= current_account["name"] %></span>
+            <input type="hidden" id="current_id" value="<%= current_account["id"] %>" />
+          </a>
+          <ul class="dropdown-menu">
+            <!-- User image -->
+            <li class="user-header">
+              <img src="<%= image_path("user2-160x160.jpg") %>" class="img-circle" alt="User Image" />
+              <p>
+                <%= current_account["name"] %>
+                <small>注册时间 <%= Time.parse(current_account["created_at"]).strftime("%Y年%m月%d日") %></small>
+              </p>
+            </li>
+            <!-- Menu Body -->
+            <!-- <li class="user-body">
+            </li> -->
+            <!-- Menu Footer-->
+            <li class="user-footer">
+              <div class="pull-left">
+                <%= link_to '修改密码', url_for(action: "edit_password",
+                  controller: "system/update_password"), class: "btn btn-default btn-flat" %>
+              </div>
+              <div class="pull-right">
+                <% quit_url = url_for(:action => "logout", :controller => "system/login") %>
+                <a href="javascript:window.top.location.href='<%= quit_url -%>'" class="btn btn-default btn-flat">退出</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <!-- Control Sidebar Toggle Button -->
+        <li>
+          <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

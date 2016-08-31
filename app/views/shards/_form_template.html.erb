@@ -1,0 +1,47 @@
+
+<form class="well col-md-12" role="form" id = "view_form" url= "/<%= params[:controller]%>/<%=params[:action]%>" form-name="<%=params[:controller].gsub(/\//,'_').gsub(/([s])$/,'')%>">
+  <div id="view_form_div">
+    <div class="col-sm-2 form-horizontal hide" id = "datetime">
+      <div id="datepicker">
+        <input size="16" class="form-control datepicker" type="text">
+      </div>
+    </div>
+
+    <div class="col-sm-2 form-horizontal hide" id = "datetime_month">
+      <div id="datepicker">
+        <input size="12" class="form-control monthpicker" type="text" >
+      </div>
+    </div>
+
+    <div class="col-sm-2 form-horizontal hide" id = "select_operator">
+      <select class="form-control input-md select2"></select>
+    </div>
+
+	  <div class="col-sm-2 form-horizontal hide" id = "select_product_version">
+      <select class="form-control input-md select2"></select>
+		</div>
+
+		 <div class="col-sm-2 form-horizontal hide" id = "select_province">
+       <select class="form-control input-md select2"></select>
+		</div>
+
+		 <div class="col-sm-2 form-horizontal hide" id = "select_manufacturer">
+	    <select class="form-control input-md select2"></select>
+		</div>
+
+		 <div class="col-sm-2 form-horizontal hide" id = "select_board">
+	    <select class="form-control input-md select2"></select>
+		</div>
+		
+		<div class="col-sm-3 form-horizontal hide" id = "select_tag">
+			<select class="form-control input-md select2"></select>
+		</div>
+
+	</div>
+
+	<div class="col-sm-1 form-horizontal hide" id = 'form_btn' >
+    <button class="btn btn-primary ladda-button" data-style="zoom-in" name="commit" type="button">
+      <span class="ladda-label">查询</span>
+    </button>
+   </div>
+</form>

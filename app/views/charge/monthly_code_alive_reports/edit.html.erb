@@ -1,0 +1,49 @@
+<div class="box-header with-border">
+  <h3 class="box-title">编辑包月码留存报表</h3>
+</div>
+
+<div class="box box-primary">
+  <%= form_for @report, url: "/charge/monthly_code_alive_reports/#{@report.id}", html: {class: "col-md-12", style: 'margin-top: 20px;'} do |f| %>
+
+    <div class="row">
+      <div class="form-group col-md-3">
+        <%= f.label :report_date, value: '报表日期', class: 'control-label' %>
+        <%= f.text_field :report_date, class: 'form-control', disabled: true %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :sp_name, value: '渠道', class: 'control-label' %>
+        <%= f.text_field :sp_name, class: 'form-control', disabled: true %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :code_name, value: '付费码', class: 'control-label' %>
+        <%= f.text_field :code_name, class: 'form-control', disabled: true %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-3">
+        <%= f.label :order_alive, value: '账单留存用户数', class: 'control-label' %>
+        <%= f.text_field :order_alive, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :order_charged_alive, value: '账单留存付费', class: 'control-label' %>
+        <%= f.text_field :order_charged_alive, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :order_activation, value: '账单新增订购', class: 'control-label' %>
+        <%= f.text_field :order_activation, class: 'form-control' %>
+      </div>
+      <div class="form-group col-md-3">
+        <%= f.label :order_activation_charged, value: '账单新增付费', class: 'control-label' %>
+        <%= f.text_field :order_activation_charged, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-primary ladda-button" data-style="zoom-in" name="" type="submit">保存</button>
+        <a href="/charge/monthly_code_alive_reports/index" class="btn btn-default">取消</a>
+      </div>
+    </div>
+  <% end %>
+</div>

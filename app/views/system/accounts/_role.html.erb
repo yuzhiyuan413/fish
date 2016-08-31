@@ -1,0 +1,10 @@
+<% roles = System::Role.all %>
+<% roles.size.times do |i| role = roles[i]%>
+  <label>
+    <%= check_box_tag 'system_account[role_ids][]', role.id, (@account.roles.exists? role), {disabled: disabled, id: role.id} %>
+    <%= role.name %>
+  </label>
+  <% if (i+1)%5 == 0 %>
+    <br>
+  <% end %>
+<% end %>

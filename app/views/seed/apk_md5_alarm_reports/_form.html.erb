@@ -1,0 +1,33 @@
+<%= form_for(@apk_md5_alarm_report) do |f| %>
+  <% if @apk_md5_alarm_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apk_md5_alarm_report.errors.count, "error") %> prohibited this apk_md5_alarm_report from being saved:</h2>
+
+      <ul>
+      <% @apk_md5_alarm_report.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tag %><br />
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
+    <%= f.label :tag_created_at %><br />
+    <%= f.date_select :tag_created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :user_total_count %><br />
+    <%= f.number_field :user_total_count %>
+  </div>
+  <div class="field">
+    <%= f.label :abnormal_user_count %><br />
+    <%= f.number_field :abnormal_user_count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

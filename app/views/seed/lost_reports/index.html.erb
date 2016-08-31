@@ -1,0 +1,47 @@
+
+<%= render layout: 'shards/default_box', locals: { box_title: "流失分析", box_class: "box-primary"} do |box| %>
+  <div class="col-md-12" >
+    <% case box when Box::Body %>
+    <div class="alert alert-success hide" role="alert"></div>
+      <div class="row">
+            <%= render 'form'%>
+      </div>
+      <div class="row">
+        <table id="base_lost_report_list"  class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th tag="group_field">Tag</th>
+              <th tag="group_field1">Tag</th>
+              <th tag="base_event_num" field_exec="delimiter">种子联网</th>
+              <th tag="compare_event_num" field_exec="delimiter">开始执行</th>
+              <th tag="event_lost_num" field_exec="delimiter">流失</th>
+              <th tag="lost_ratio" field_exec="percentage">流失率</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <table style="display:none;" id="compare_lost_report_list"  class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+          <thead>
+            <tr>
+              <th tag="group_field">统计纬度</th>
+              <th tag="group_field1">统计纬度</th>
+              <th tag="base_event_num" field_exec="delimiter">事件1</th>
+              <th tag="compare_event_num" field_exec="delimiter">事件2</th>
+              <th tag="event_lost_num" field_exec="delimiter">流失</th>
+              <th tag="lost_ratio" field_exec="percentage">流失率</th>
+              <th tag="base_event_num2" field_exec="delimiter">事件1</th>
+              <th tag="compare_event_num2" field_exec="delimiter">事件2</th>
+              <th tag="event_lost_num2" field_exec="delimiter">流失</th>
+              <th tag="lost_ratio2" field_exec="percentage">流失率</th>
+              <th tag="lost_compare_ratio" field_exec="percentage">流失率差</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+<% end %>

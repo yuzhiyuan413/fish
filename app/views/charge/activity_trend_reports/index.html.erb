@@ -1,0 +1,43 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <div class="row">
+            <%= render '/shards/form_template' %>
+          </div>
+          <div class="row">
+            <table id="charge_activity_trend_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                 <th rowspan="2" >省份\日期</th>
+                  <% month_header(@trend_day_header).each do |header,col_count| %>
+                      <th colspan="<%=col_count %>" ><%=header %></th>
+                  <% end %>
+                </tr>
+                <tr>
+                  <% @trend_day_header.each do |col| %>
+                    <th><%= col.day %></th>
+                  <% end %>
+                </tr>
+              </thead>
+              <tbody>
+                <% @activity_trend_reports.each do |item|
+                      province = item.keys[0]
+                %>
+                  <tr>
+                    <td><%= province %></td>
+                    <% @trend_day_header.each do |col| %>
+                        <td data-value="<%=item[province][col.to_s] %>"><%= number_with_delimiter(item[province][col.to_s]) %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+      <% end %>
+    </div>
+<% end %>
+<script type="text/javascript">
+    $(function(){
+       init_dataTables("charge_activity_trend_report_list");
+    })
+</script>

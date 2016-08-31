@@ -1,0 +1,49 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+<div class="col-md-12">
+  <% case box when Box::Body %>
+  <div class="row">
+    <%= render '/shards/form_template' %>
+  </div>
+  <div class="row">
+    <table id = "charge_alive_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th tag="report_date">日期</th>
+          <th tag="tag">标签</th>
+          <th tag="activation_num" field_exec="delimiter">新增</th>
+          <th tag="stay_alive2" field_exec="delimiter">2日留存</th>
+          <th tag="ratio_alive2" field_exec="percentage" >2日留存率</th>
+          <th tag="stay_alive3" field_exec="delimiter">3日留存</th>
+          <th tag="ratio_alive3" field_exec="percentage">3日留存率</th>
+          <th tag="stay_alive7" field_exec="delimiter">7日留存</th>
+          <th tag="ratio_alive7" field_exec="percentage">7日留存率</th>
+          <th tag="stay_alive15" field_exec="delimiter">15日留存</th>
+          <th tag="ratio_alive15" field_exec="percentage" >15日留存率</th>
+          <th tag="stay_alive30" field_exec="delimiter">30日留存</th>
+          <th tag="ratio_alive30" field_exec="percentage" >30日留存率</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      <tfoot class="well">
+          <tr index="0">
+            <td>平均留存率</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td tag="stay_aliva_ratio2" field_exec="percentage"></td>
+            <td></td>
+            <td tag="stay_aliva_ratio3" field_exec="percentage"></td>
+            <td></td>
+            <td tag="stay_aliva_ratio7" field_exec="percentage"></td>
+            <td></td>
+            <td tag="stay_aliva_ratio15" field_exec="percentage"></td>
+            <td></td>
+            <td tag="stay_aliva_ratio30" field_exec="percentage"></td>
+          </tr>
+      </tfoot>
+    </table>
+  </div>
+  <% end %>
+</div>
+<% end %>

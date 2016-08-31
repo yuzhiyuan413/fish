@@ -1,0 +1,49 @@
+<%= render layout: 'shards/default_box', locals: { box_title: "当天代码成功率实时监控", box_class: "box-primary"} do |box| %>
+	<div class="col-md-12" >
+		<% case box when Box::Body %>
+			<div class="row">
+    		<table style="table-layout:fixed;" id="daily_report_list" th-index="1" class="table table-striped table-bordered table-hover compact small-font" cellspacing="0" width="100%">
+    			<thead>
+						<tr style="display:none;">
+							<th width="24%"></th>
+							<th width="19%"></th>
+							<th colspan="9"></th>
+						</tr>
+            <tr>
+							<th tag="name">名称</th>
+							<th width="24%" tag="name" input_events="code_number|dest_number">名称</th>
+              <th width="19%" tag="sp_name">渠道</th>
+              <th tag="deliver_num" field_exec="delimiter">下发用户</th>
+              <th tag="deliver_amount" field_exec="centToYuan,roundToInt">下发金额</th>
+              <th tag="feedback_num" field_exec="delimiter">回传用户</th>
+              <th tag="feedback_amount" field_exec="centToYuan,roundToInt">回传金额</th>
+              <th tag="feedback_num_ratio" field_exec="percent_int">成功率用户</th>
+              <th tag="sp_feedback_num" field_exec="delimiter" >SP反馈用户</th>
+              <th tag="sp_feedback_amount"  field_exec="centToYuan,roundToInt">SP反馈金额</th>
+              <th tag="sp_feedback_num_ratio" color="red"  field_exec="percent_int">SP转化率用户</th>
+              <th tag="sp_feedback_amount_ratio" field_exec="percent_int">SP转化率金额</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot class="well">
+              <tr index="0">
+                <td>小计</td>
+                <td width="24%">小计</td>
+                <td width="19%"></td>
+                <td tag="deliver_num" field_exec="delimiter"></td>
+                <td tag="deliver_amount" field_exec="centToYuan,roundToInt"></td>
+                <td tag="feedback_num" field_exec="delimiter"></td>
+                <td tag="feedback_amount" field_exec="centToYuan,roundToInt"></td>
+                <td tag="feedback_num_ratio" field_exec="percent_int"></td>
+                <td tag="sp_feedback_num" field_exec="delimiter"></td>
+                <td tag="sp_feedback_amount" field_exec="centToYuan,roundToInt"></td>
+                <td tag="sp_feedback_num_ratio" field_exec="percent_int"></td>
+                <td tag="sp_feedback_amount_ratio" field_exec="percent_int"></td>
+              </tr>
+            </tfoot>
+    		</table>
+    	</div>
+		<% end %>
+	</div>
+<% end %>

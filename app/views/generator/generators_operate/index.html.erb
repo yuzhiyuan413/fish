@@ -1,0 +1,152 @@
+<%= render layout: 'shards/default_box', locals: {box_title: "数据生成器"} do |box| %>
+    <!--<span id="result_msg" style="margin-left:20%;"></span>-->
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <div class="alert alert-success hide" role="alert"></div>
+          <div class="row">
+            <div style="float:left;margin:0 0 4px 15px;"><button class="btn btn-default" id="sectionbtn">section配置模板</button></div>
+            <div style="float:left;margin:0 0 4px 5px;"><button  class="btn btn-default" id="reportbtn">report配置模板</button></div>
+            <div style="float:left;margin:0 0 4px 5px;"><button  class="btn btn-default" id="clearbtn">配置清空</button></div>
+            <div style="float:right;margin-right:15px;"><button class="btn btn-default" id="lightbtn">开灯/关灯</button></div>
+          </div>
+          <form>
+<textarea id="code" name="code">
+  <% if @file_content.present? %>
+      <%= @file_content %>
+  <% else %>
+#以下是报表数据生成的配置脚本
+#配置名称*
+  <% end %>
+</textarea>
+          </form>
+<textarea style="display:none;" id="section_default">
+section [:数据片名称] do
+    mixin [:数据片名称], except: [section的属性,如: data_source | count | group|..]
+    data_source [数据源]
+    distinct_count [:数据列名]
+    condition do
+      [查询条件,如 :record_time DateTime.parse('20160502').beginning_of_day..DateTime.parse('20160502').end_of_day]
+    end
+    group [:数据列名],[:数据列名],...
+    sum_group [:数据列名], [数据列分组器]
+end
+</textarea>
+<textarea style="display:none;" id="report_default">
+report [:报表名称] do
+    report_model [报表的model类]
+    initialize_fields do
+      [初始化报表字段, 如:列名 列值 ]
+      [如: report_date Date.today]
+    end
+    field [:报表字段] do
+      section [:数据片名]
+      columns [:报表字段], [:报表字段], ...
+    end
+    field [:报表字段] do
+      expr "表达式", [:报表字段], [:报表字段],...
+    end
+    before_save do |records|
+      [代码块]
+    end
+    after_save do
+      [代码块]
+    end
+    clear_table do
+      [报表字段  字段值]
+    end
+end
+</textarea>
+      <% when Box::Footer %>
+          <div class="col-sm-1 " id='form_btn'>
+            <button class="btn btn-primary ladda-button" id="generator_btn" name="commit" type="button">
+              <span class="ladda-label">创建或更新</span>
+            </button>
+          </div>
+          <%= render 'readme'%>
+      <% end %>
+    </div>
+
+<% end %>
+<script>
+  editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    mode: "text/x-ruby",
+    keyMap: "sublime",
+    lineNumbers: true,
+    matchBrackets: true,
+    theme: "monokai",
+    indentUnit: 4
+  });
+
+  $(".CodeMirror").css("height", "600px");
+
+  $("#generator_btn").on("click", function () {
+    var head_part = getHeadPart().replace("\n","").trim();
+    var config_part = getConfigPart().replace("\n","").trim();
+    if(head_part == "#以下是报表数据生成的配置脚本#配置名称*" || config_part==""){
+      var msg = config_part == "" ? "请填写脚本" : "请编辑配置名称";
+      $(".alert").html(msg).attr("class","alert alert-error").show();
+      return false;
+    }
+    $.post("/generator/generators_operate/create", {
+      code: editor.getValue(),
+      "<%= request_forgery_protection_token %>": "<%= form_authenticity_token %>"
+    }, function (result) {
+      if (result == "配置写入成功.")
+        $(".alert").html(result).attr("class","alert alert-success").show().delay(3000).fadeOut()
+      else
+        $(".alert").html(result).attr("class","alert alert-error").show()
+    });
+  })
+
+  $("#lightbtn").on("click",function(){
+    if(editor.getOption("theme") == "monokai"){
+      editor.setOption("theme","default")
+    }else{
+      editor.setOption("theme","monokai")
+    }
+  })
+
+
+  function getHeadPart(){
+    content = editor.getValue();
+    headPart = content.substr(0,content.indexOf("*")+1);
+    return headPart;
+  }
+
+  function getConfigPart(){
+    content = editor.getValue();
+    configPart = content.substr(content.indexOf("*")+1)
+    return configPart;
+  }
+  $("#sectionbtn").on("click",function(){
+    headPart = getHeadPart();
+    configPart = getConfigPart();
+    sectiondefault = $("#section_default").val();
+    if(configPart.indexOf("report_model") > 0){
+      sectiondefault+= configPart
+      content = sectiondefault
+    }else{
+      content += sectiondefault;
+    }
+    if(content.indexOf(headPart) < 0)
+      content = headPart + "\n" + content
+    $("#code").html(content);
+    editor.setValue(content)
+  })
+
+  $("#reportbtn").on("click",function(){
+    content = editor.getValue();
+    sectiondefault = $("#report_default").val();
+    content += "\n"+sectiondefault;
+    $("#code").html(content);
+    editor.setValue(content)
+  })
+
+  $("#clearbtn").on("click",function(){
+    content = editor.getValue();
+    headPart = "#以下是报表数据生成的配置脚本\n#配置名称*"
+    $("#code").html(headPart);
+    editor.setValue(headPart);
+  })
+</script>
+

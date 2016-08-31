@@ -1,0 +1,24 @@
+<style type="text/css">
+	#select2-report_hour-results{max-height:1000px}
+	#select2-province_id-results{max-height:600px}
+	#select2-city_id-results{max-height:600px}
+	#select2-sp_id-results{max-height:600px}
+</style>
+<div class="row">
+  <%= render 'form' %>
+</div>
+
+<div class="row monitor_div" >
+  <%= render 'box_daily' %>
+</div>
+<div class="row monitor_div">
+  <%= render 'box_hourly' %>
+</div>
+<script type="text/javascript">
+$(".select2").select2({
+    theme: "bootstrap",
+    placeholder: "请选择",
+    allowClear: true
+});
+
+</script>

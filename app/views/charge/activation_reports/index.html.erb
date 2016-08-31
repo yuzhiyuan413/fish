@@ -1,0 +1,29 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <div class="row">
+            <%= render '/shards/form_template' %>
+          </div>
+          <div class="row">
+            <table id="charge_activation_report_list" class="table table-bordered table-hover" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                  <th tag="report_date">日期</th>
+                  <th tag="tag">标签</th>
+                  <th tag="activation_num"  field_exec="delimiter">新增用户</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+              <tfoot class="well">
+                <tr index="0">
+                  <td>总计</td>
+                  <td></td>
+                  <td tag="activation_num"  field_exec="delimiter"></td>
+                </tr>
+              </tfoot>
+            </table>
+        </div>
+      <% end %>
+    </div>
+<% end %>

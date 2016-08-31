@@ -1,0 +1,25 @@
+<%= render layout: 'shards/default_box', locals: {} do |box| %>
+    <div class="col-md-12">
+      <% case box when Box::Body %>
+          <div class="row">
+           <%= render '/shards/form_template' %>
+          </div>
+          <table id="seed_apk_list" class="table table-bordered table-hover nowrap" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th tag = "md5">Md5(32位)</th>
+                <th tag = "uid_count">篡改用户数</th>
+              </tr>
+            </thead>
+            <tfoot class="well">
+              <tr index="0">
+                <td tag = "records_size" field_exec="delimiter"></td>
+                <td tag = "uid_count" field_exec="delimiter"></td>
+              </tr>
+            </tfoot>
+            <tbody>
+            </tbody>
+          </table>
+      <% end %>
+    </div>
+<% end %>

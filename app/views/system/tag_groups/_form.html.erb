@@ -1,0 +1,32 @@
+<%= form_for @system_tag_group, :html => {:role => "form" } do |f| %>
+  <% if @system_tag_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{@system_tag_group.errors.count}个错误导致保存失败。" %></h2>
+      <ul>
+      <% @system_tag_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, '标签组名' %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :regexp, '正则匹配表达式' %><br />
+    <%= f.text_field :regexp %>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_sum_group, '是否汇总' %><br />
+    <%= f.check_box :is_sum_group %>
+  </div>
+  <div class="form-group">
+    <%= f.label :desc, '描述' %><br />
+    <%= f.text_area :desc, :cols => 35, :rows => 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "保存", :class => 'btn btn-default' %>
+  </div>
+<% end %>

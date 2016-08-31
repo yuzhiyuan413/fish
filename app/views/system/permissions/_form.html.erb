@@ -1,0 +1,106 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    	$("#system_permission_subsystem_id").change(function(){
+  	  var request_url="/system/permissions/get_functions?subsystem_id=";
+    	  if($('#subsystem_id_selected').val() == "")
+    	  {
+    	  	request_url = request_url + $(this).val();
+    	  }
+    	  else
+    	  {
+    	  	request_url = request_url + $('#subsystem_id_selected').val();
+    	  	$('#subsystem_id_selected').val("");
+    	  }
+        console.log(request_url);
+    	  $.ajax({
+  	  	  	url: request_url,
+  	  	  	success: function(data, status, xhr){
+    	  	  	var func_slt = $('#system_permission_function_id');
+    			    func_slt.empty();
+    			    $.each(data, function(index, value) {
+      					var opt = $('<option/>');
+      					opt.prop('value', value[1]);
+      					opt.text(value[0]);
+      					opt.appendTo(func_slt);
+    			    });
+    		    	if($('#function_id_selected').val() != "")
+    		    	{
+    			  	  	func_slt.val($('#function_id_selected').val());
+    			  	  	$('#function_id_selected').val("");
+    		    	}
+  	  	  	}
+  	  	});
+  	});
+  	if($('#subsystem_id_selected').val() != ""){
+  	    $('#system_permission_subsystem_id').val($('#subsystem_id_selected').val());
+    }
+  	$('#system_permission_subsystem_id').change();
+  });
+</script>
+
+<%= form_for(@permission, html: {class: "form-horizontal",role: "form" }) do |f| %>
+  <% if @permission.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h3>保存时有<%= @permission.errors.count %>个错误:</h3>
+      <ul>
+      <% @permission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<%= f.hidden_field :sort %>
+	<%= hidden_field_tag 'subsystem_id_selected', @permission.subsystem_id %>
+	<%= hidden_field_tag 'function_id_selected', @permission.function_id %>
+	<div class="form-group">
+    <%= f.label :name, "对象类型", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+			<%= f.hidden_field :link_type %>
+			<%= @permission.link_type %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, "对象名称", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+			<%= f.hidden_field :link_id %>
+			<%= @permission.link.name %>
+    </div>
+  </div>
+	<div class="form-group">
+    <%= f.label :subsystem_id, "模块", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+			<%= f.select :subsystem_id,  options_for_select(subsystems), {}, class: "form-control" %>
+    </div>
+  </div>
+	<div class="form-group">
+    <%= f.label :function_id, "子模块", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+			<%= f.select :function_id, {}, {}, class: "form-control" %>
+    </div>
+  </div>
+	<div class="form-group">
+    <%= f.label :function_id, "访问类型", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+			<%= f.radio_button(:status, "1", :checked => true )  %>
+			<%= f.label(:status, "允许", :value => "1")  %>
+			<%= f.radio_button(:status, "0")  %>
+			<%= f.label(:status, "禁止", :value => "0")  %>
+    </div>
+  </div>
+	<div class="form-group">
+    <%= f.label :function_id, "操作", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+			<%= check_box_tag("system_permission[operates][]", "0", @permission.any_operate?("0") , :id => "system_permission_operates_0") %>
+			<%= f.label(:operates, "添加", :value => "0")  %>
+			<%= check_box_tag("system_permission[operates][]", "1", @permission.any_operate?("1"), :id => "system_permission_operates_1") %>
+			<%= f.label(:operates, "查看", :value => "1")  %>
+			<%= check_box_tag("system_permission[operates][]", "2", @permission.any_operate?("2"), :id => "system_permission_operates_2") %>
+			<%= f.label(:operates, "删除", :value => "2")  %>
+			<%= check_box_tag("system_permission[operates][]", "3", @permission.any_operate?("3"), :id => "system_permission_operates_3") %>
+			<%= f.label(:operates, "修改", :value => "3")  %>
+    </div>
+  </div>
+	<div class="form-group">
+      <%= f.submit '保存', class: 'btn btn-primary pull-right' %>
+  </div>
+<% end %>

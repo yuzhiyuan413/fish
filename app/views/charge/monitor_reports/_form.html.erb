@@ -1,0 +1,39 @@
+<%= form_tag('/charge/monitor_reports/index', method: :get) do %>
+  <div class="form-inline">
+    <div class="form-group">
+        <%= label_tag :code_number, "基础码", class: "control-label" %>
+        <%= text_field_tag :code_number, nil, class: "form-control", style: "font-size: 12px;"%>
+    </div>
+    <div class="form-group">
+        <%= label_tag :province_id, "省份", class: "control-label" %>
+        <%= select_tag :province_id, province_options, { include_blank: true, class: "form-control input-md select2", style: "width:150px"}  %>
+    </div>
+    <div class="form-group">
+        <%= label_tag :operator_id, "运营商", class: "control-label"%>
+        <%= select_tag :operator_id, operator_options, {include_blank: true, class: "form-control input-md select2", style: "width:150px"}  %>
+    </div>
+  </div>
+  <div class="form-inline">
+    <div class="form-group">
+        <%= label_tag :dest_number, "端口号", class: "control-label" %>
+        <%= text_field_tag :dest_number, nil, class: "form-control", style: "font-size: 12px;"%>
+    </div>
+    <div class="form-group">
+        <%= label_tag :city_id, "城市", class: "control-label" %>
+        <%= select_tag :city_id, city_options, {include_blank: true, class: "form-control input-md select2", style: "width:150px"}  %>
+        <%= select_tag :city_id_hidden, city_options, {include_blank: true, class: "form-control", style: "display:none;"}  %>
+    </div>
+    <div class="form-group">
+        <%= label_tag :report_hour, "小时段", class: "control-label" %>
+        <%= select_tag :report_hour, report_hour_options, {include_blank: true, class: "form-control input-md select2", style: "width:150px"}  %>
+    </div>
+    <div class="form-group">
+        <%= label_tag :sp_id, "所属SP", class: "control-label", style: "width:50px"%>
+        <%= select_tag :sp_id, service_provider_options, {include_blank: true, class: "form-control input-md select2", style: "width:300px"} %>
+    </div>
+    <div class="form-group">
+        <button id="monitor_btn"  type="button" class="btn btn-primary">查询</button>
+    </div>
+  </div>
+
+<% end %>
