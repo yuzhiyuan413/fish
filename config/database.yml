@@ -1,0 +1,82 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: mantis_development
+  pool: 5
+  username: root
+  password:
+  host: 127.0.0.1
+
+development:
+  <<: *default
+
+tiger_pass_development:
+  <<: *default
+
+# Report db server config
+default_base: &default_base
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  pool: 5
+  username: mantis
+  password: tiger2108
+  host: 192.168.12.155
+  port: 5209
+
+locust_development:
+  <<: *default
+  database: locust_development
+
+dwh_sword_development:
+  <<: *default_base
+  database: sword_production
+
+dwh_crab_development:
+  <<: *default_base
+  database: charge_report_production
+
+dwh_smart_development:
+  <<: *default_base
+  database: mantis_production
+
+dwh_ework_development:
+  <<: *default_base
+  database: ework_production
+
+
+daily_base: &daily_base
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  pool: 5
+  username: hamster
+  password: GyS433@0ul
+  host: 192.168.12.38
+
+daily_sword_development:
+  <<: *daily_base
+  database: sword_production
+
+daily_crab_development:
+  <<: *daily_base
+  database: crab_production
+
+daily_panda_development:
+  <<: *daily_base
+  host: 192.168.12.82
+  database: TigerReport_production
+
+daily_smart_development:
+  <<: *daily_base
+  host: 192.168.12.65
+  database: TigerReport_production
+
+daily_report_development:
+  <<: *daily_base
+  database: daily_report
+
+daily_ework_development:
+  <<: *daily_base
+  database: ework_production

@@ -62,3 +62,7 @@ group :test, :development do
 end
 
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'rack-oauth2', '~> 1.0.5'
+gem 'grape'
+gem 'grape-entity'
+gem 'doorkeeper'

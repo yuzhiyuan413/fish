@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root :to => 'system/login#index'
   get 'heartbeat' => 'system/login#heartbeat'
-
+  mount API, at: 'api'
   namespace :system do
     resources :accounts
     resources :roles

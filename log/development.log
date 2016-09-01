@@ -1,0 +1,270 @@
+
+
+Started GET "/" for 127.0.0.1 at 2016-09-01 14:43:27 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (10.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by System::LoginController#index as HTML
+  [1m[35mSystem::Account Exists (46.1ms)[0m  SELECT  1 AS one FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mSystem::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (7.6ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (10.6ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.1ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.1ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.1ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.1ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.3ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.4ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.2ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.1ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.1ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mPass::Account Load (0.1ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+Redirected to http://localhost:3000/seed/activity_situation_reports/index
+Completed 302 Found in 306ms (ActiveRecord: 171.9ms)
+
+
+Started GET "/seed/activity_situation_reports/index" for 127.0.0.1 at 2016-09-01 14:43:28 +0800
+Processing by Seed::ActivitySituationReportsController#index as HTML
+  [1m[35mPass::Account Load (0.3ms)[0m  SELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort[0m
+  [1m[35mPass::Role Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42
+  [1m[36mPass::Permission Load (0.2ms)[0m  [1mSELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort[0m
+  [1m[35mSystem::TagGroup Load (0.2ms)[0m  SELECT `system_tag_groups`.`name` FROM `system_tag_groups` WHERE `system_tag_groups`.`is_sum_group` = 1
+  [1m[36mSeed::ActivitySituationReport Load (1.3ms)[0m  [1mSELECT distinct tag FROM `activity_situation_reports`  ORDER BY `activity_situation_reports`.`tag` ASC[0m
+  [1m[35mSystem::TagGroup Load (0.2ms)[0m  SELECT `system_tag_groups`.* FROM `system_tag_groups`
+  Rendered shards/_form_template.html.erb (0.3ms)
+  Rendered shards/_default_box.html.erb (2.8ms)
+  Rendered seed/activity_situation_reports/index.html.erb within layouts/application (17.3ms)
+  [1m[36mPass::Account Load (0.3ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.4ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.4ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.2ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mPass::Account Load (0.8ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  Rendered shards/_main_header.html.erb (96.4ms)
+  Rendered shards/_main_footer.html.erb (0.3ms)
+  Rendered shards/_control_sidebar.html.erb (0.3ms)
+Completed 200 OK in 4858ms (Views: 4677.2ms | ActiveRecord: 96.0ms)
+
+
+Started GET "/seed/activity_situation_reports/index" for 127.0.0.1 at 2016-09-01 14:43:33 +0800
+Processing by Seed::ActivitySituationReportsController#index as JSON
+  [1m[36mPass::Account Load (0.3ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.2ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/seed/activity_situation_reports/index?seed_activity_situation_report%5Btag%5D=%E5%85%A8%E9%83%A8%E6%B1%87%E6%80%BB&name=activity_situation" for 127.0.0.1 at 2016-09-01 14:43:34 +0800
+Processing by Seed::ActivitySituationReportsController#index as JSON
+  Parameters: {"seed_activity_situation_report"=>{"tag"=>"全部汇总"}, "name"=>"activity_situation"}
+  [1m[36mPass::Account Load (0.4ms)[0m  [1mSELECT  `accounts`.* FROM `accounts` WHERE `accounts`.`id` = 42 LIMIT 1[0m
+  [1m[35mPass::Permission Load (0.3ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Account' AND `permissions`.`link_id` = 42  ORDER BY sort
+  [1m[36mPass::Role Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` INNER JOIN `accounts_roles` ON `roles`.`id` = `accounts_roles`.`role_id` WHERE `accounts_roles`.`account_id` = 42[0m
+  [1m[35mPass::Permission Load (0.3ms)[0m  SELECT `permissions`.* FROM `permissions` WHERE `permissions`.`link_type` = 'Role' AND `permissions`.`link_id` = 1  ORDER BY sort
+  [1m[36mSeed::ActivitySituationReport Load (35.4ms)[0m  [1mSELECT  `activity_situation_reports`.* FROM `activity_situation_reports` WHERE `activity_situation_reports`.`tag` = '全部汇总' AND `activity_situation_reports`.`report_type` = 'Seed::ActivityReport' AND `activity_situation_reports`.`record_time` = '今日'  ORDER BY `activity_situation_reports`.`id` ASC LIMIT 1[0m
+  [1m[35mSeed::ActivitySituationReport Load (0.6ms)[0m  SELECT  `activity_situation_reports`.* FROM `activity_situation_reports` WHERE `activity_situation_reports`.`tag` = '全部汇总' AND `activity_situation_reports`.`report_type` = 'Seed::ActivityReport' AND `activity_situation_reports`.`record_time` = '昨日此时'  ORDER BY `activity_situation_reports`.`id` ASC LIMIT 1
+  [1m[36mSeed::ActivitySituationReport Load (0.3ms)[0m  [1mSELECT  `activity_situation_reports`.* FROM `activity_situation_reports` WHERE `activity_situation_reports`.`tag` = '全部汇总' AND `activity_situation_reports`.`report_type` = 'Seed::ActivityReport' AND `activity_situation_reports`.`record_time` = '昨日全天'  ORDER BY `activity_situation_reports`.`id` ASC LIMIT 1[0m
+  [1m[35mSeed::ActivityTotalReport Load (1.2ms)[0m  SELECT `activity_total_reports`.* FROM `activity_total_reports` WHERE `activity_total_reports`.`tag` = '全部汇总' AND `activity_total_reports`.`report_type` = 'Seed::ActivityReport'
+Completed 200 OK in 105ms (Views: 7.9ms | ActiveRecord: 67.1ms)
+
+
+Started GET "/api/v1/seed/index" for 127.0.0.1 at 2016-09-01 15:38:46 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
